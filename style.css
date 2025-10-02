@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ffeef8 0%, #ffd4e5 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+}
+
+.instruction {
+    color: #ff69b4;
+    font-size: 18px;
+    margin-top: 30px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.3);
+}
+
+.envelope {
+    position: relative;
+    width: 320px;
+    height: 220px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.envelope:hover {
+    transform: translateY(-5px);
+}
+
+.envelope-body {
+    position: absolute;
+    bottom: 0;
+    width: 320px;
+    height: 200px;
+    background: #ffb3d9;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 100px solid #ff99cc;
+    z-index: 2;
+    transform-origin: top center;
+    transition: transform 0.5s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.envelope-top {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-bottom: 100px solid #ffcceb;
+    z-index: 1;
+}
+
+.letter {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 280px;
+    height: 160px;
+    background: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    transition: transform 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.letter h1 {
+    color: #ff1493;
+    font-size: 28px;
+    text-align: center;
+    line-height: 1.4;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
+}
+
+/* Open state */
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    transform: translateY(-120px);
+    z-index: 3;
+}
+
+/* Animation for cute effect */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.envelope.bounce {
+    animation: bounce 0.5s ease;
+}

@@ -84,11 +84,12 @@ body {
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transform: translateY(0);
-    transition: transform 0.5s ease;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 0;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .letter h1 {
@@ -107,6 +108,7 @@ body {
 .envelope.open .letter {
     transform: translateY(-120px);
     z-index: 3;
+    opacity: 1;
 }
 
 /* Animation for cute effect */
